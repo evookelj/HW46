@@ -13,49 +13,45 @@ public class RunMed {
     //instance vars
     private ALMaxHeap leftHeap;  //for lower range of dataset
     private ALMinHeap rightHeap; //for upper range of dataset
-
+    int sizeL;
+    int sizeR;
 
     /*****************************************************
      * default constructor  ---  inits empty heap
      *****************************************************/
-    public RunMed() 
-    { 
-
+    public RunMed() { 
+	leftHeap = new ALMaxHeap();
+	rightHeap = new ALMinHeap();
     }//O(1)
-
-
 
     /*****************************************************
      * double getMedian()  ---  returns median of dataset
      *****************************************************/
-    public double getMedian() 
-    {
-
+    public double getMedian() {
+	if ((sizeR+sizeL)%2 == 1) {
+	    if (sizeR > sizeL) { return rightHeap.peekMin(); }
+	    return leftHeap.peekMax();
+	} else {
+	    return (rightHeap.peekMin()+leftHeap.peekMax())/2.0;
+	}
     }//O(1)
-
-
 
     /*****************************************************
      * insert(int)  ---  adds a new element to the dataset
      * postcondition: dataset is maintained such that 
      *                getMedian() can run in constant time
      *****************************************************/
-    public void insert( int addVal )
-    {   
-     }//O(?)
-
-
+    public void insert( int addVal ) {
+	size++;
+    }//O(?)
 
     /*****************************************************
      * boolean isEmpty()  ---  tells whether a median may be calculated
      * postcondition: dataset structure unchanged
      *****************************************************/
-    public boolean isEmpty() 
-    {
-
-    }//O(?)
-
-
+    public boolean isEmpty() { return (leftHeap.isEmpty()
+				       && rightHeap.isEmpty());
+    }//O(1)
 
     //main method for testing
     public static void main( String[] args ) {
