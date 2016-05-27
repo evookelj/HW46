@@ -42,9 +42,16 @@ public class RunMed {
      *                getMedian() can run in constant time
      *****************************************************/
     public void insert( int addVal ) {
-	size++;
-    }//O(?)
+	if (sizeR>sizeL) {
+	    while (sizeR-sizeL != 1) { leftHeap.add(rightHeap.removeMin()); }
+	    leftHeap.add(addVal);
+	} else {
+	    while (sizeL-sizeR != 1) { rightHeap.add(leftHeap.removeMax()); }
+	    rightHeap.add(addVal);
+	}
 
+    }//O(?)
+    
     /*****************************************************
      * boolean isEmpty()  ---  tells whether a median may be calculated
      * postcondition: dataset structure unchanged
@@ -56,7 +63,7 @@ public class RunMed {
     //main method for testing
     public static void main( String[] args ) {
 
-	/*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
+
         RunMed med = new RunMed();
         med.insert(1);
 	System.out.println( med.getMedian() ); //1
@@ -68,8 +75,8 @@ public class RunMed {
 	System.out.println( med.getMedian() ); //4
         med.insert(9);
 	System.out.println( med.getMedian() ); //5
+		/*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
 	~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~*/
-
     }//end main()
 
 }//end class RunMed
