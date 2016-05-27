@@ -94,18 +94,8 @@ public class RunMed {
         med.insert(9);
 	System.out.println( med.getMedian() ); //5
         System.out.println("left: " + med.leftHeap + "\nright:" + med.rightHeap + "\n");
-		/*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
+        /*~~~V~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~V~~~
 	~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~*/
     }//end main()
 
 }//end class RunMed
-
-
-
-    /*****************************************************
-     * 
-     *****************************************************/
-    // (  )
-    // {
-    // 	/*** YOUR IMPLEMENTATION HERE ***/
-    // }//O(?)
